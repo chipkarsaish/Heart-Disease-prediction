@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Latest Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Detection System - About Us</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/diagnosis.css') }}">
+    <link rel="icon" type="image/png" href="static/images/logo.jpeg">
+</head>
+<body>
+    <!-- Background Video -->
+    <video id="background-video" autoplay loop muted playsinline class="bg-video">
+        <source src="{{ url_for('static', filename='videos/homebg.mp4') }}" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <!-- Header Section -->
+    <header>
+        <div class="logo-container">
+            <img src="static/images/logo.jpeg" alt="Heart Disease Predictor Logo">
+            <h1>Heart Disease Predictor</h1>
+        </div>
+        <nav class="desktop-nav">
+            <button onclick="window.location.href='{{ url_for('home') }}'">Home</button>
+            <button onclick="window.location.href='{{ url_for('predict_page') }}'">Predict</button>
+            <button onclick="window.location.href='{{ url_for('about') }}'">About Us</button>
+            <button onclick="window.location.href='{{ url_for('symptoms') }}'">Symptoms & Causes</button>
+        </nav>
+        <!-- Mobile Menu Button -->
+        <div class="menu-icon" onclick="toggleMenu()">☰</div>
+
+        <!-- Dark Mode Toggle -->
+        <div class="theme-toggle" onclick="toggleTheme()">🌙</div>
+    </header>
+
+    <div class ="container">
+        <h1>Diagnosis & Treatment of Heart Disease</h1>
+        <p>Heart disease is a term used to describe a range of conditions that affect the heart. It includes blood vessel diseases, such as coronary artery disease; heart rhythm problems (arrhythmias); and heart defects you're born with (congenital heart defects), among others.</p>
+
+        
+        
+    <div class="section">
+            <h2>Diagnosis</h2>
+            <p>To diagnose heart disease, a healthcare professional examines you and listens to your heart. You are usually asked questions about your symptoms and your personal and family medical history.</p>
+            <p>Many different tests are used to diagnose heart disease:</p>
+            <ul>
+                <li><strong>Blood tests:</strong> Certain heart proteins slowly leak into the blood after heart damage from a heart attack. Blood tests can be done to check for these proteins. A high-sensitivity C-reactive protein (CRP) test checks for a protein linked to inflammation of the arteries. Other blood tests may be done to check cholesterol and blood sugar levels.</li>
+                <li><strong>Chest X-ray:</strong> A chest X-ray shows the condition of the lungs. It can show if the heart is enlarged.</li>
+                <li><strong>Electrocardiogram (ECG or EKG):</strong> An ECG is a quick and painless test that records the electrical signals in the heart. It can tell if the heart is beating too fast or too slow.</li>
+                <li><strong>Holter monitoring:</strong> A Holter monitor is a portable ECG device that's worn for a day or more to record the heart's activity during daily activities. This test can detect irregular heartbeats that aren't found during a regular ECG exam.</li>
+                <li><strong>Echocardiogram:</strong> This noninvasive exam uses sound waves to create detailed images of the heart in motion. It shows how blood moves through the heart and heart valves. An echocardiogram can help determine if a valve is narrowed or leaking.</li>
+                <li><strong>Exercise tests or stress tests:</strong> These tests often involve walking on a treadmill or riding a stationary bike while the heart is checked. Exercise tests help reveal how the heart responds to physical activity and whether heart disease symptoms occur during exercise. If you can't exercise, you might be given medicine that affects the heart like exercise does.</li>
+                <li><strong>Cardiac catheterization:</strong> This test can show blockages in the heart arteries. A long, thin flexible tube called a catheter is inserted in a blood vessel, usually in the groin or wrist, and guided to the heart. Dye flows through the catheter to arteries in the heart. The dye helps the arteries show up more clearly on X-ray images taken during the test.</li>
+                <li><strong>Heart CT scan:</strong> In a cardiac CT scan, you lie on a table inside a doughnut-shaped machine. An X-ray tube inside the machine rotates around your body and collects images of your heart and chest.</li>
+                <li><strong>Heart MRI scan:</strong> A cardiac MRI uses a magnetic field and computer-generated radio waves to create detailed images of the heart.</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Treatment</h2>
+            <p>Heart disease treatment depends on the cause and type of heart damage. Treatment for heart disease may include:</p>
+            <ul>
+                <li><strong>Lifestyle changes:</strong> Eating a diet low in salt and saturated fat, getting more exercise, and not smoking.</li>
+                <li><strong>Medicines:</strong> Prescribed medications may be used to treat various aspects of heart disease.</li>
+                <li><strong>A heart procedure:</strong> Procedures such as angioplasty or stenting to help unblock arteries.</li>
+                <li><strong>Heart surgery:</strong> In some cases, surgery may be necessary to correct heart problems.</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- Impact Statistics Section -->
+<section class="impact-statistics">
+    <h2>Model Info</h2>
+    <div class="stats-container">
+        <!-- Accuracy Box -->
+        <div class="stat-box">
+            <i class="fas fa-user-md"></i>
+            <h3 class="counter" data-target="86">0</h3>
+            <p>Accuracy Percentage</p>
+        </div>
+        <!-- Progress Bar Box -->
+        <div class="progress-box">
+            <p>Accuracy Progress</p>
+            <div class="progress-bar-background">
+                <div class="progress-bar" data-target="86"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Counter Animation
+        const counter = document.querySelector(".counter");
+        counter.innerText = "0";
+        const updateCounter = () => {
+            const target = +counter.getAttribute("data-target");
+            const count = +counter.innerText;
+            const increment = target / 100; // Adjust speed
+
+            if (count < target) {
+                counter.innerText = `${Math.ceil(count + increment)}`;
+                setTimeout(updateCounter, 20);
+            } else {
+                counter.innerText = target;
+            }
+        };
+        updateCounter();
+
+        // Progress Bar Animation
+        const progressBar = document.querySelector(".progress-bar");
+        const targetValue = +progressBar.getAttribute("data-target");
+        let progress = 0;
+
+        const updateProgressBar = () => {
+            if (progress < targetValue) {
+                progress += 1;
+                progressBar.style.width = `${progress}%`;
+                setTimeout(updateProgressBar, 30);
+            } else {
+                progressBar.style.width = `${targetValue}%`;
+            }
+        };
+        updateProgressBar();
+    });
+</script>
+
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-content">
+            <h2>Heart Detection System</h2>
+            <p>Your health, our priority. AI-powered heart disease detection.</p>
+            <div class="social-links">
+                <a href="https://www.facebook.com/zuck/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://twitter.com/elonmusk?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="https://www.instagram.com/ashtonhallofficial/" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://in.linkedin.com/in/piyush-barde-b054a8165?trk=people-guest_people_search-card" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Heart Detection System | All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Transition Overlay -->
+    <div class="transition-overlay" style="opacity:0; visibility:hidden;">
+    <video class="loading-screen-video" muted>
+        <source src="{{ url_for('static', filename='videos/loadingscreen.mp4') }}" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    </div>
+
+    <!-- Scripts -->
+    <script src="{{ url_for('static', filename='js/transition1.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/cursor-effect.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/menu1.js') }}"></script>
+</body>
+</html>

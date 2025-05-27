@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Predict Heart Disease</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/predict.css') }}">
+    <link rel="icon" type="image/png" href="static/images/logo.jpeg">
+</head>
+<body>
+
+<header>
+    <div class="logo-container">
+        <img src="static/images/logo.jpeg" alt="Heart Disease Predictor Logo">
+        <h1>Heart Disease Predictor</h1>
+    </div>
+    <nav>
+        <button id="homeBtn" onclick="window.location.href='{{ url_for('home') }}'">Home</button>
+        <button id="aboutBtn" onclick="window.location.href='{{ url_for('about') }}'">About Us</button>
+        <button id="symptomsBtn" onclick="window.location.href='{{ url_for('symptoms') }}'">Symptoms & Causes</button>
+        <button id="diagnosisBtn" onclick="window.location.href='{{ url_for('diagnosis') }}'">Diagnosis & Treatment</button>
+    </nav>
+</header>
+
+<div class="container">
+    <h1>ADD HEART DETAIL</h1>
+
+    <form action="{{ url_for('predict') }}" method="POST">
+        <div class="grid">
+            <div class="input-box">
+                <label for="age">Age</label>
+                <input type="number" id="age" name="age" min="1" required>
+            </div>
+
+            <div class="input-box">
+                <label for="sex">Gender</label>
+                <div class="input-container">
+                    <input type="text" id="sexInput" readonly> 
+                    <select id="sex" name="sex" onchange="updateInput('sexInput', this)">
+                        <option value="" disabled selected hidden>Select</option>
+                        <option value="1">Male</option>
+                        <option value="0">Female</option>
+                        
+                    </select>
+                </div>
+            </div>
+
+            <div class="input-box">
+                <label for="chestPain">Chest Pain</label>
+                <div class="input-container">
+                    <input type="text" id="chestPainInput" readonly>
+                    <select id="chestPain" name="cp" onchange="updateInput('chestPainInput', this)">
+                        <option value="" disabled selected hidden>Select</option>
+                        <option value="0">Typical Angina</option>
+                        <option value="1">Atypical Angina</option>
+                        <option value="2">Non-Typical Angina</option>
+                        <option value="3">Asymptomatic</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="input-box">
+                <label for="bp">Resting BP (mmHg)</label>
+                <input type="number" id="bp" name="trestbps" min="0" required>
+            </div>
+
+            <div class="input-box">
+                <label for="cholesterol">Cholesterol (mg/dl)</label>
+                <input type="number" id="cholesterol" name="chol" min="0" required>
+            </div>
+
+            <div class="input-box">
+                <label for="fastingBS">Fasting BS</label>
+                <div class="input-container">
+                    <input type="text" id="fastingBSInput" readonly>
+                    <select id="fastingBS" name="fbs" onchange="updateInput('fastingBSInput', this)">
+                        <option value="" disabled selected hidden>Select</option>
+                        <option value="1">True</option>
+                        <option value="0">False</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="input-box">
+                <label for="ecg">ECG</label>
+                <div class="input-container">
+                    <input type="text" id="ecgInput" readonly>
+                    <select id="ecg" name="restecg" onchange="updateInput('ecgInput', this)">
+                        <option value="" disabled selected hidden>Select</option>
+                        <option value="0">Normal</option>
+                        <option value="1">ST-T Waves Abnormality</option>
+                        <option value="2">Probable Left Ventricular Hypertrophy</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="input-box">
+                <label for="maxHeartRate">Max Heart Rate</label>
+                <input type="number" id="maxHeartRate" name="thalach" min="0" required>
+            </div>
+
+            <div class="input-box">
+                <label for="exerciseInduced">Exercise Induced</label>
+                <div class="input-container">
+                    <input type="text" id="exerciseInducedInput" readonly>
+                    <select id="exerciseInduced" name="exang" onchange="updateInput('exerciseInducedInput', this)">
+                        <option value="" disabled selected hidden>Select</option>
+                        <option value="1">Yes, Angina</option>
+                        <option value="0">No Angina</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="input-box">
+                <label for="oldpeak">Old Peak</label>
+                <input type="number" id="oldpeak" name="oldpeak" step="0.1" required>
+            </div>
+
+            <div class="input-box">
+                <label for="slope">Slope</label>
+                <div class="input-container">
+                    <input type="text" id="slopeInput" readonly>
+                    <select id="slope" name="slope" onchange="updateInput('slopeInput', this)">
+                        <option value="" disabled selected hidden>Select</option>
+                        <option value="0">Upsloping</option>
+                        <option value="1">Flat</option>
+                        <option value="2">Downsloping</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="input-box">
+                <label for="cardiacArrest">Coronary Angiography</label>
+                <input type="number" id="cardiacArrest" name="ca" min="0" max="3" required>
+            </div>
+
+            <div class="input-box full-width">
+                <label for="thalassemia">Thalassemia</label>
+                <div class="input-container">
+                    <input type="text" id="thalassemiaInput" readonly>
+                    <select id="thalassemia" name="thal" onchange="updateInput('thalassemiaInput', this)">
+                        <option value="" disabled selected hidden>Select</option>
+                        <option value="0">Normal</option>
+                        <option value="1">Fixed Defect</option>
+                        <option value="2">Reversible Defect</option>
+                    </select>
+                </div>
+            </div>
+            <div class="input-box full-width">
+    <label for="smoking">Smoking (Yes/No)</label>
+    <div class="input-container">
+        <input type="text" id="smokingInput" readonly>
+        <select id="smoking" name="Smoking" onchange="updateInput('smokingInput', this)">
+            <option value="" disabled selected hidden>Select</option>
+            <option value="0">Yes</option>
+            <option value="1">No</option>
+        </select>
+             </div>
+        </div>
+
+        </div>
+
+        <button type="submit">SEND HEART DATA</button>
+    </form>
+    <p>{{ prediction_text }}</p>
+</div>
+
+<script>
+    function updateInput(inputId, selectElement) {
+        const inputField = document.getElementById(inputId);
+        if (selectElement.value) {
+            inputField.value = selectElement.value;
+        }
+    }
+</script>
+<script src="{{ url_for('static', filename='js/cursor-effect.js') }}"></script>
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

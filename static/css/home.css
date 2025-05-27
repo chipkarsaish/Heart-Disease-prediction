@@ -1,0 +1,768 @@
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&display=swap');
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Rajdhani', sans-serif;
+    background: black;
+    min-height: 100vh;
+    overflow-x: hidden;
+    color: white;
+}
+
+/* Background Video */
+.bg-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
+}
+
+/* Header with Branding */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.9);
+    padding: 12px 25px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    box-shadow: 0px 4px 10px rgba(0, 255, 255, 0.5);
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    color: white;
+}
+
+.logo-container img {
+    width: 50px;
+    height: 50px;
+    margin-right: 12px;
+    border-radius: 50%;
+}
+
+.logo-container h1 {
+    font-size: 22px;
+    margin: 0;
+    white-space: nowrap;
+}
+
+/* Navigation */
+nav {
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
+    gap: 12px;
+    margin-left: 40px;
+    align-items: center;
+}
+
+nav button {
+    background: linear-gradient(135deg, cyan, #00bcd4);
+    border: none;
+    padding: 12px 18px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    color: black;
+    box-shadow: 0 3px 6px rgba(0, 255, 255, 0.4);
+    transition: all 0.3s ease-in-out;
+    min-width: 190px;
+    max-width: 190px;
+    height: 40px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+nav button:hover {
+    background: linear-gradient(135deg, #00bcd4, cyan);
+    transform: scale(1.07);
+    box-shadow: 0px 0px 12px rgba(0, 255, 255, 0.7);
+}
+
+/* Hero Section */
+.hero {
+    text-align: center;
+    padding: 180px 20px 100px;
+    position: relative;
+    z-index: 1;
+}
+
+.hero h1 {
+    font-size: 50px;
+    font-weight: bold;
+    background: linear-gradient(135deg, cyan, #00bcd4);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    display: inline-block;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.hero p {
+    font-size: 22px;
+    margin-top: 10px;
+    opacity: 0.8;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+.hero-buttons {
+    margin-top: 20px;
+}
+
+.hero-buttons button {
+    background: linear-gradient(135deg, cyan, #00bcd4);
+    padding: 14px 22px;
+    border: none;
+    border-radius: 6px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.hero-buttons button:hover {
+    transform: scale(1.07);
+    box-shadow: 0 0 20px rgba(103, 58, 183, 0.7); /* Brighter glow on hover */
+}
+
+.how-it-works {
+    text-align: center;  /* Center-aligns the title and text */
+    padding: 60px 20px;
+    color: white; /* Ensures text is visible on dark mode */
+}
+
+.how-it-works h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.steps {
+    display: flex;
+    flex-direction: row;  /* Ensures steps are in a row */
+    justify-content: center; /* Centers the steps horizontally */
+    align-items: center;
+    gap: 30px; /* Adds spacing between steps */
+    flex-wrap: wrap; /* Ensures responsiveness */
+}
+
+.step {
+    background: rgba(255, 255, 255, 0.1); /* Glassmorphism effect */
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0px 0px 12px rgba(0, 255, 255, 0.5);
+    min-height: 150px;
+    width: 300px; /* Keeps steps uniform */
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+.step:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(103, 58, 183, 0.7); /* Brighter glow on hover */
+}
+
+.step h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.step p {
+    font-size: 1rem;
+    opacity: 0.8;
+}
+
+/* Responsive for small screens */
+@media (max-width: 768px) {
+    .steps {
+        flex-direction: column; /* Stacks steps on smaller screens */
+    }
+}
+
+
+/* Key Features */
+.features {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+    margin-top: 50px;
+}
+
+.feature {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 25px;
+    border-radius: 12px;
+    width: 320px;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+    transition: transform 0.3s;
+    text-align: center;
+}
+
+.feature:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(103, 58, 183, 0.7); /* Brighter glow on hover */
+}
+
+.feature h3 {
+    color: cyan;
+    font-size: 26px;
+}
+
+/* Center the heading in the About Section */
+.about h2 {
+    text-align: center;
+    width: 100%;
+    margin-bottom: 20px;
+    color: white; /* Ensures visibility */
+}
+
+/* Improved text visibility */
+h1, h2, h3, p {
+    color: white; /* Ensures readability */
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8); /* Soft glow effect */
+}
+
+/* Footer Styling */
+footer {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 30px 20px;
+    text-align: center;
+    color: white;
+    box-shadow: 0px -4px 10px rgba(0, 255, 255, 0.5);
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer-content h2 {
+    font-size: 24px;
+    margin-bottom: 8px;
+    color: cyan;
+}
+
+.footer-content p {
+    font-size: 16px;
+    opacity: 0.8;
+}
+
+/* Social Media Icons */
+.social-links {
+    margin: 15px 0;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.social-links a {
+    color: cyan;
+    font-size: 22px;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+}
+
+.social-links a:hover {
+    color: #00bcd4;
+    transform: scale(1.2);
+}
+
+/* Footer Bottom */
+.footer-bottom {
+    margin-top: 15px;
+    font-size: 14px;
+    opacity: 0.7;
+}
+
+
+/* Footer Social Links */
+.footer-links {
+    margin-top: 10px;
+}
+
+.footer-links a {
+    color: #E3F2FD; /* Soft blue for contrast */
+    text-decoration: none;
+    margin: 0 10px;
+    transition: color 0.3s ease-in-out;
+}
+
+.footer-links a:hover {
+    color: #673AB7; /* Deep purple on hover */
+}
+
+/* Transition Overlay */
+.transition-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: black;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 9999; /* Ensures it's above everything */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.5s ease-in-out;
+}
+
+/* Loading Screen Video */
+.loading-screen-video {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+}
+
+/* Hide mobile menu by default */
+.mobile-menu {
+    display: none;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background: rgba(0, 0, 0, 0.9);
+    box-shadow: 0px 4px 10px rgba(0, 255, 255, 0.5);
+    border-radius: 8px;
+    overflow: hidden;
+    z-index: 101;
+}
+
+/* Show menu when active */
+.mobile-menu.active {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 15px;
+}
+
+/* Style for mobile menu buttons */
+.mobile-menu button {
+    background: linear-gradient(135deg, cyan, #00bcd4);
+    border: none;
+    padding: 10px 15px;
+    font-size: 16px;
+    font-weight: bold;
+    color: black;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 3px 6px rgba(0, 255, 255, 0.4);
+    transition: all 0.3s ease-in-out;
+    text-align: center;
+    width: 100%;
+}
+
+.mobile-menu button:hover {
+    background: linear-gradient(135deg, #00bcd4, cyan);
+    transform: scale(1.05);
+    box-shadow: 0px 0px 12px rgba(0, 255, 255, 0.7);
+}
+
+.theme-toggle {
+    position: fixed;
+    top: 15px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background: var(--button-bg, #fff);
+    color: var(--button-text, #000);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    transition: background 0.5s ease-in-out, transform 0.3s ease-in-out;
+    z-index: 1000;
+    overflow: hidden;
+}
+
+.theme-toggle:hover {
+    transform: scale(1.1);
+    background: var(--button-hover, #ddd);
+}
+
+/* Light Mode - Improved Text Colors */
+.light-mode {
+    background: #faf8f8; /* Soft light gray */
+    color: #333; /* Darker for better contrast */
+}
+
+/* Light Mode - General Text */
+.light-mode h1, 
+.light-mode h2, 
+.light-mode h3 {
+    color: #4A148C; /* Deep purple */
+}
+
+.light-mode p {
+    color: #333; /* Darker for better contrast */
+}
+
+
+/* Sun & Moon Animation */
+.theme-toggle i {
+    position: absolute;
+    transition: transform 0.8s ease-in-out, opacity 0.5s ease-in-out;
+}
+
+/* Default (Dark Mode) */
+.theme-toggle .moon {
+    transform: translateY(-60px);
+    opacity: 0;
+}
+
+.theme-toggle .sun {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* Light Mode Animation */
+.light-mode .theme-toggle .moon {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.light-mode .theme-toggle .sun {
+    transform: translateY(60px);
+    opacity: 0;
+}
+
+/* Light Mode Header */
+.light-mode header {
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Light Mode Colors */
+.light-mode .theme-toggle {
+    background: #000;
+    color: #fff;
+}
+
+.light-mode .theme-toggle:hover {
+    background: rgba(0, 0, 0, 0.4);
+}
+
+/* Light Mode for Buttons */
+.light-mode nav button,
+.light-mode .hero-buttons button {
+    background: linear-gradient(135deg, #673AB7, #512DA8);
+    color: white;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
+}
+
+.light-mode nav button:hover,
+.light-mode .hero-buttons button:hover {
+    background: linear-gradient(135deg, #512DA8, #673AB7);
+    box-shadow: 0px 0px 12px rgba(103, 58, 183, 0.7);
+}
+
+/* Light Header */
+.light-mode header {
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Light Mode Sections */
+.light-mode .hero-section,
+.light-mode .about-section,
+.light-mode .how-it-works {
+    background: transparent;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0px 4px 10px  #673AB7;
+}
+
+/* Light Mode - Navigation Buttons */
+.light-mode nav button,
+.light-mode .hero-buttons button,
+.light-mode .mobile-menu button {
+    background: linear-gradient(135deg, #673AB7, #9575CD); /* Deep Purple & Soft Lavender */
+    color: white;
+    box-shadow: 0 3px 6px rgba(103, 58, 183, 0.5);
+}
+
+.light-mode nav button:hover,
+.light-mode .hero-buttons button:hover,
+.light-mode .mobile-menu button:hover {
+    background: linear-gradient(135deg, #0a36fa, #673AB7);
+    box-shadow: 0px 0px 12px rgba(103, 58, 183, 0.7);
+}
+
+/* Light Mode Hero Section */
+.light-mode .hero h1 {
+    background: linear-gradient(135deg, #673AB7, #9575CD);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.light-mode .hero p {
+    color: #4A148C; /* Deep Purple */
+    opacity: 0.9;
+}
+
+
+/* Light Mode Cards */
+.light-mode .card {
+    background: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Light Mode Footer */
+.light-mode footer {
+    background:transparent; /* Soft Lavender */
+    color: #4A148C; /* Deep Purple */
+}
+
+/* Light Mode Cards */
+.light-mode .feature,
+.light-mode .review {
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0px 3px 10px rgba(103, 58, 183, 0.2);
+}
+
+.light-mode .feature h3,
+.light-mode .review p {
+    color: #4A148C; /* Deep Purple */
+}
+
+.light-mode .footer-content h2 {
+    color: #4A148C; /* Deep Purple */
+}
+
+.light-mode .footer-links a {
+    color: #673AB7;
+}
+
+.light-mode .footer-links a:hover {
+    color: #4A148C;
+}
+
+/* Light Mode - Social Media Icons */
+.light-mode .social-links a {
+    color: #673AB7;
+}
+
+.light-mode .social-links a:hover {
+    color: #4A148C;
+}
+
+/* Light Mode - Footer Text */
+.light-mode .footer-content p,
+.light-mode .footer-bottom {
+    color: #333;
+    opacity: 0.9;
+}
+
+.light-mode .background-video {
+    filter: brightness(1.2) blur(5px);
+}
+
+/* Light Mode - Footer Links */
+.light-mode .footer-links a {
+    color: #673AB7; /* Soft blue */
+}
+
+.light-mode .footer-links a:hover {
+    color: #4A148C; /* Deep purple */
+}
+
+/* Light Mode - Social Media Icons */
+.light-mode .social-links a {
+    color: #673AB7;
+}
+
+.light-mode .social-links a:hover {
+    color: #4A148C;
+}
+
+
+.light-mode::before {
+    content: "";
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    width: 100px;
+    height: 100px;
+    background: rgba(255, 255, 255, 0.6);
+    filter: blur(40px);
+    animation: floatEffect 6s infinite alternate;
+}
+
+@keyframes floatEffect {
+    0% { transform: translateY(-10px); }
+    100% { transform: translateY(10px); }
+}
+
+/* Hide menu icon on desktop */
+@media (min-width: 900px) {
+    .menu-icon {
+        display: none;
+    }
+    .mobile-menu {
+        display: none !important;
+    }
+}
+
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design Tweaks */
+@media (max-width: 900px) {
+    .hero h1 {
+        font-size: 36px;
+    }
+
+    .hero p {
+        font-size: 18px;
+    }
+
+    .hero-buttons button {
+        font-size: 16px;
+    }
+
+    .feature,
+    .review {
+        width: 100%;
+    }
+}
+
+.cursor {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: cyan;
+    border-radius: 50%;
+    pointer-events: none;
+    box-shadow: 0 0 10px cyan;
+    transition: transform 0.1s ease-out, opacity 0.1s ease-out;
+}
+
+.cursor-trail {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: rgba(0, 255, 255, 0.6);
+    border-radius: 50%;
+    pointer-events: none;
+    box-shadow: 0 0 8px rgba(0, 255, 255, 0.6);
+    opacity: 0.8;
+    transition: opacity 0.2s ease-out;
+}
+
+/* FAQ Section */
+.faq {
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.faq h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* FAQ Container */
+.faq-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* FAQ Item */
+.faq-item {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    box-shadow: 0 0 10px rgba(103, 58, 183, 0.5);
+    transition: all 0.3s ease-in-out;
+}
+
+.faq-question {
+    width: 100%;
+    background: transparent;
+    border: none;
+    font-size: 20px;
+    color: #E3F2FD; /* Soft blue */
+    text-align: left;
+    padding: 10px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.faq-toggle {
+    font-size: 24px;
+    transition: transform 0.3s ease;
+}
+
+/* FAQ Answer */
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+}
+
+.faq-answer p {
+    color: #ddd;
+    padding: 10px;
+}
+
+/* Dark Mode */
+.dark-mode .faq-item {
+    background: rgba(30, 30, 30, 0.9);
+    box-shadow: 0 0 10px rgba(103, 58, 183, 0.8);
+}
+
+.dark-mode .faq-question {
+    color: #E3F2FD;
+}
+
+.dark-mode .faq-answer p {
+    color: #ddd;
+}
+
+/* Light Mode */
+.light-mode .faq-item {
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 0 10px rgba(103, 58, 183, 0.5);
+}
+
+.light-mode .faq-question {
+    color: #673AB7;
+}
+
+.light-mode .faq-answer p {
+    color: #333;
+}

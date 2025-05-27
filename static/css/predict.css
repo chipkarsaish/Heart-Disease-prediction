@@ -1,0 +1,296 @@
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Rajdhani', sans-serif;
+    background: url('/static/images/Predictbgimg.jpg') no-repeat center center/cover;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: auto;
+    padding-top: 100px;
+    color: white;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.9);
+    padding: 12px 25px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    color: white;
+}
+
+.logo-container img {
+    width: 50px;
+    height: 50px;
+    margin-right: 12px;
+    border-radius: 50%;
+}
+
+.logo-container h1 {
+    font-size: 22px;
+    margin: 0;
+    white-space: nowrap;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
+    gap: 12px;
+    margin-left: 40px;
+    align-items: center;
+}
+
+nav button {
+    background: linear-gradient(135deg, cyan, #00bcd4);
+    border: none;
+    padding: 12px 18px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    color: black;
+    box-shadow: 0 3px 6px rgba(0, 255, 255, 0.4);
+    transition: all 0.3s ease-in-out;
+    min-width: 190px;
+    max-width: 190px;
+    height: 40px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+nav button:hover {
+    background: linear-gradient(135deg, #00bcd4, cyan);
+    transform: scale(1.07);
+    box-shadow: 0 5px 10px rgba(0, 255, 255, 0.5);
+}
+
+.container {
+    background: rgba(0, 0, 0, 0.75);
+    padding: 30px;
+    border-radius: 12px;
+    text-align: center;
+    max-width: 750px;
+    width: 90%;
+    margin: 80px auto 40px;
+}
+
+h1 {
+    margin-bottom: 25px;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.input-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    position: relative;
+}
+
+.input-box label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+input {
+    padding: 14px;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    width: 90%;
+    text-align: center;
+    transition: 0.3s;
+    box-sizing: border-box;
+    background: rgba(255, 255, 255, 0.9);
+    color: black;
+    height: 40px;
+}
+
+input:focus {
+    outline: none;
+    box-shadow: 0px 0px 8px cyan;
+}
+
+.input-container {
+    position: relative;
+    width: 90%;
+    display: flex;
+    align-items: center;
+}
+
+.input-container input {
+    flex: 1;
+    padding: 14px;
+    border-radius: 6px;
+    border: none;
+    font-size: 16px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.8);
+    color: black;
+    height: 40px;
+}
+
+.input-container select {
+    position: absolute;
+    right: 0;
+    width: 40%;
+    height: 40px;
+    padding: 11px;
+    border: none;
+    background: linear-gradient(135deg, cyan, #00bcd4);
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+    text-align: center;
+    transition: width 0.2s ease-in-out;
+    appearance: none;
+}
+
+.input-container select.shrink {
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    text-align: center;
+    color: transparent;
+}
+
+.input-container select.shrink option {
+    color: black;
+}
+
+.input-container::after {
+    content: "▼";
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 18px;
+    color: black;
+    pointer-events: none;
+}
+
+.input-container select:focus + .dropdown-arrow {
+    opacity: 0;
+}
+
+.input-container select.shrink + .dropdown-arrow {
+    opacity: 1;
+}
+
+.input-container select:focus {
+    width: 40%;
+    height: 40px;
+    color: black;
+}
+
+button {
+    background: linear-gradient(135deg, cyan, #00bcd4);
+    color: black;
+    padding: 8px;
+    border: none;
+    width: 60%;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    transition: 0.3s;
+    margin-top: 25px;
+    box-shadow: 0 5px 10px rgba(0, 255, 255, 0.4);
+}
+
+button:hover {
+    background: linear-gradient(135deg, #00bcd4, cyan);
+    transform: scale(1.07);
+    box-shadow: 0 5px 10px rgba(0, 255, 255, 0.6);
+}
+
+.cursor {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: cyan;
+    border-radius: 50%;
+    pointer-events: none;
+    box-shadow: 0 0 10px cyan;
+    transition: transform 0.1s ease-out, opacity 0.1s ease-out;
+}
+
+.cursor-trail {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: rgba(0, 255, 255, 0.6);
+    border-radius: 50%;
+    pointer-events: none;
+    box-shadow: 0 0 8px rgba(0, 255, 255, 0.6);
+    opacity: 0.8;
+    transition: opacity 0.2s ease-out;
+}
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+        padding: 12px;
+    }
+
+    .logo-container {
+        justify-content: center;
+        margin-bottom: 12px;
+    }
+
+    nav {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        margin-left: 0;
+    }
+
+    nav button {
+        width: 100%;
+        padding: 12px;
+        font-size: 15px;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    button {
+        width: 75%;
+    }
+
+    .input-container select {
+        width: 50%;
+    }
+}

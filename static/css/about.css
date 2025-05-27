@@ -1,0 +1,624 @@
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&display=swap');
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    font-family: 'Rajdhani', sans-serif;
+    background: black;
+    min-height: 100vh;
+    overflow-x: hidden;
+    color: white;
+}
+
+main {
+    flex-grow: 1;
+    padding-bottom: 80px; /* Space for footer */
+}
+
+/* Background Video */
+.bg-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
+}
+
+/* Header with Branding */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.9);
+    padding: 12px 25px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    box-shadow: 0px 4px 10px rgba(0, 255, 255, 0.5);
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    color: white;
+}
+
+.logo-container img {
+    width: 50px;
+    height: 50px;
+    margin-right: 12px;
+    border-radius: 50%;
+}
+
+.logo-container h1 {
+    font-size: 22px;
+    margin: 0;
+    white-space: nowrap;
+}
+
+/* Navigation */
+nav {
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
+    gap: 12px;
+    margin-left: 40px;
+    align-items: center;
+}
+
+nav button {
+    background: linear-gradient(135deg, cyan, #00bcd4);
+    border: none;
+    padding: 12px 18px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    color: black;
+    box-shadow: 0 3px 6px rgba(0, 255, 255, 0.4);
+    transition: all 0.3s ease-in-out;
+    min-width: 190px;
+    max-width: 190px;
+    height: 40px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+nav button:hover {
+    background: linear-gradient(135deg, #00bcd4, cyan);
+    transform: scale(1.07);
+    box-shadow: 0px 0px 12px rgba(0, 255, 255, 0.7);
+}
+
+
+/* Footer */
+footer {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 30px 20px;
+    text-align: center;
+    color: white;
+}
+
+/* Theme Button */
+#theme-toggle {
+    background: #673AB7;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+/* About Section */
+.about {
+    margin-top: 120px;
+    max-width: 800px;
+    background: transparent;
+    backdrop-filter: blur(10px);
+    transition: background 0.3s ease, color 0.3s ease;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    color: white;
+    box-shadow: 0px 0px 10px cyan;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Random Fact Section */
+.fact-section {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    padding: 20px;
+    background:transparent;
+    backdrop-filter: blur(10px);
+    max-width: 600px;
+    border-radius: 10px;
+    text-align: center;
+    color: white;
+    box-shadow: 0px 0px 10px cyan;
+
+    /** Center the section **/
+    margin-left: auto;
+    margin-right: auto;
+
+    /** Prevent cutoff by footer **/
+    position: relative;
+    z-index: 2;
+}
+
+/* Ensure "Did You Know?" and fact are centered */
+.fact-section h3 {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.fact-section p {
+    font-size: 18px;
+    text-align: center;
+    min-height: 30px;
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+/* Footer Styling */
+footer {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 30px 20px;
+    text-align: center;
+    color: white;
+    box-shadow: 0px -4px 10px rgba(0, 255, 255, 0.5);
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer-content h2 {
+    font-size: 24px;
+    margin-bottom: 8px;
+    color: cyan;
+}
+
+.footer-content p {
+    font-size: 16px;
+    opacity: 0.8;
+}
+
+/* Social Media Icons */
+.social-links {
+    margin: 15px 0;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.social-links a {
+    color: cyan;
+    font-size: 22px;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+}
+
+.social-links a:hover {
+    color: #00bcd4;
+    transform: scale(1.2);
+}
+
+/* Footer Bottom */
+.footer-bottom {
+    margin-top: 15px;
+    font-size: 14px;
+    opacity: 0.7;
+}
+
+
+/* Footer Social Links */
+.footer-links {
+    margin-top: 10px;
+}
+
+.footer-links a {
+    color: #E3F2FD; /* Soft blue for contrast */
+    text-decoration: none;
+    margin: 0 10px;
+    transition: color 0.3s ease-in-out;
+}
+
+.footer-links a:hover {
+    color: #673AB7; /* Deep purple on hover */
+}
+
+/* Transition Overlay */
+.transition-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: black;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 9999; /* Ensures it's above everything */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.5s ease-in-out;
+}
+
+/* Loading Screen Video */
+.loading-screen-video {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+}
+
+.theme-toggle {
+    position: fixed;
+    top: 15px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background: var(--button-bg, #fff);
+    color: var(--button-text, #000);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    transition: background 0.5s ease-in-out, transform 0.3s ease-in-out;
+    z-index: 1000;
+    overflow: hidden;
+}
+
+.theme-toggle:hover {
+    transform: scale(1.1);
+    background: var(--button-hover, #ddd);
+}
+
+/* Light Mode - Improved Text Colors */
+.light-mode {
+    background: #faf8f8; /* Soft light gray */
+    color: #333; /* Darker for better contrast */
+}
+
+/* Light Mode - General Text */
+.light-mode h1, 
+.light-mode h2, 
+.light-mode h3 {
+    color: #4A148C; /* Deep purple */
+}
+
+.light-mode p {
+    color: #333; /* Darker for better contrast */
+}
+
+
+/* Sun & Moon Animation */
+.theme-toggle i {
+    position: absolute;
+    transition: transform 0.8s ease-in-out, opacity 0.5s ease-in-out;
+}
+
+/* Default (Dark Mode) */
+.theme-toggle .moon {
+    transform: translateY(-60px);
+    opacity: 0;
+}
+
+.theme-toggle .sun {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* Light Mode Animation */
+.light-mode .theme-toggle .moon {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.light-mode .theme-toggle .sun {
+    transform: translateY(60px);
+    opacity: 0;
+}
+
+/* Light Mode Header */
+.light-mode header {
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Light Mode Colors */
+.light-mode .theme-toggle {
+    background: #000;
+    color: #fff;
+}
+
+.light-mode .theme-toggle:hover {
+    background: rgba(0, 0, 0, 0.4);
+}
+
+/* Light Mode - Improved Text Colors */
+.light-mode {
+    background: #faf8f8; /* Soft light gray */
+    color: #333; /* Darker for better contrast */
+}
+
+/* Light Mode - General Text */
+.light-mode h1, 
+.light-mode h2, 
+.light-mode h3 {
+    color: #4A148C; /* Deep purple */
+}
+
+.light-mode p {
+    color: #333; /* Darker for better contrast */
+}
+
+
+/* Sun & Moon Animation */
+.theme-toggle i {
+    position: absolute;
+    transition: transform 0.8s ease-in-out, opacity 0.5s ease-in-out;
+}
+
+/* Default (Dark Mode) */
+.theme-toggle .moon {
+    transform: translateY(-60px);
+    opacity: 0;
+}
+
+.theme-toggle .sun {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* Light Mode Animation */
+.light-mode .theme-toggle .moon {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.light-mode .theme-toggle .sun {
+    transform: translateY(60px);
+    opacity: 0;
+}
+
+/* Light Mode Header */
+.light-mode header {
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Light Mode Colors */
+.light-mode .theme-toggle {
+    background: #000;
+    color: #fff;
+}
+
+.light-mode .theme-toggle:hover {
+    background: rgba(0, 0, 0, 0.4);
+}
+
+/* Light Mode - Navigation Buttons */
+.light-mode nav button,
+.light-mode .hero-buttons button,
+.light-mode .mobile-menu button {
+    background: linear-gradient(135deg, #673AB7, #9575CD); /* Deep Purple & Soft Lavender */
+    color: white;
+    box-shadow: 0 3px 6px rgba(103, 58, 183, 0.5);
+}
+
+.light-mode nav button:hover,
+.light-mode .hero-buttons button:hover,
+.light-mode .mobile-menu button:hover {
+    background: linear-gradient(135deg, #0a36fa, #673AB7);
+    box-shadow: 0px 0px 12px rgba(103, 58, 183, 0.7);
+}
+
+
+/* Light Header */
+.light-mode header {
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Light Mode Footer */
+.light-mode footer {
+    background:transparent; /* Soft Lavender */
+    color: #4A148C; /* Deep Purple */
+}
+
+/* Light Mode Cards */
+.light-mode .feature,
+.light-mode .review {
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0px 3px 10px rgba(103, 58, 183, 0.2);
+}
+
+.light-mode .feature h3,
+.light-mode .review p {
+    color: #4A148C; /* Deep Purple */
+}
+
+.light-mode .footer-content h2 {
+    color: #4A148C; /* Deep Purple */
+}
+
+.light-mode .footer-links a {
+    color: #673AB7;
+}
+
+.light-mode .footer-links a:hover {
+    color: #4A148C;
+}
+
+/* Light Mode - Social Media Icons */
+.light-mode .social-links a {
+    color: #673AB7;
+}
+
+.light-mode .social-links a:hover {
+    color: #4A148C;
+}
+
+/* Light Mode - Footer Text */
+.light-mode .footer-content p,
+.light-mode .footer-bottom {
+    color: #333;
+    opacity: 0.9;
+}
+
+.light-mode .background-video {
+    filter: brightness(1.2) blur(5px);
+}
+
+/* Light Mode - Footer Links */
+.light-mode .footer-links a {
+    color: #673AB7; /* Soft blue */
+}
+
+.light-mode .footer-links a:hover {
+    color: #4A148C; /* Deep purple */
+}
+
+/* Light Mode - Social Media Icons */
+.light-mode .social-links a {
+    color: #673AB7;
+}
+
+.light-mode .social-links a:hover {
+    color: #4A148C;
+}
+
+
+.light-mode::before {
+    content: "";
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    width: 100px;
+    height: 100px;
+    background: rgba(255, 255, 255, 0.6);
+    filter: blur(40px);
+    animation: floatEffect 6s infinite alternate;
+}
+
+@keyframes floatEffect {
+    0% { transform: translateY(-10px); }
+    100% { transform: translateY(10px); }
+}
+
+/* Hide menu icon on desktop */
+@media (min-width: 900px) {
+    .menu-icon {
+        display: none;
+    }
+    .mobile-menu {
+        display: none !important;
+    }
+}
+
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design Tweaks */
+@media (max-width: 900px) {
+    .hero h1 {
+        font-size: 36px;
+    }
+
+    .hero p {
+        font-size: 18px;
+    }
+
+    .hero-buttons button {
+        font-size: 16px;
+    }
+
+    .feature,
+    .review {
+        width: 100%;
+    }
+}
+
+.cursor {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: cyan;
+    border-radius: 50%;
+    pointer-events: none;
+    box-shadow: 0 0 10px cyan;
+    transition: transform 0.1s ease-out, opacity 0.1s ease-out;
+}
+
+.cursor-trail {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: rgba(0, 255, 255, 0.6);
+    border-radius: 50%;
+    pointer-events: none;
+    box-shadow: 0 0 8px rgba(0, 255, 255, 0.6);
+    opacity: 0.8;
+    transition: opacity 0.2s ease-out;
+}
+
+
+/* Mission Statement Section */
+.mission-section {
+    margin-top: 50px;
+    padding: 30px;
+    background: rgba(0, 0, 0, 0.6); /* Dark mode background */
+    backdrop-filter: blur(10px); /* Blurred effect */
+    border-radius: 10px;
+    text-align: center;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    color: #fff; /* Default text color for dark mode */
+    box-shadow: 0px 0px 10px cyan;
+}
+
+/* Light Mode Adjustments */
+body.light-mode .mission-section {
+    background: rgba(255, 255, 255, 0.7); /* Light mode background */
+    color: #000; /* Black text for light mode */
+}
+
+body.light-mode .mission-section h2 {
+    color: #673AB7; /* Deep Purple for headings in light mode */
+}
+
+
+.mission-section p {
+    font-size: 18px;
+    line-height: 1.6;
+}

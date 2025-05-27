@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Latest Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Detection System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+    <link rel="icon" type="image/png" href="static/images/logo.jpeg">
+</head>
+<body>
+    <!-- Background Video -->
+    <video id="background-video" autoplay loop muted playsinline class="bg-video">
+        <source src="{{ url_for('static', filename='videos/homebg.mp4') }}" type="video/mp4">
+        <source src="{{ url_for('static', filename='videos/homebg.webm') }}" type="video/webm">
+        Your browser does not support the video tag.
+    </video>
+
+    <!-- Header Section -->
+    <header>
+        <div class="logo-container">
+            <img src="static/images/logo.jpeg" alt="Heart Disease Predictor Logo">
+            <h1>Heart Disease Predictor</h1>
+        </div>
+        <nav class="desktop-nav"> 
+            <button onclick="window.location.href='{{ url_for('predict_page') }}'">Predict</button>
+            <button onclick="window.location.href='{{ url_for('about') }}'">About Us</button>
+            <button onclick="window.location.href='{{ url_for('symptoms') }}'">Symptoms & Causes</button>
+            <button onclick="window.location.href='{{ url_for('diagnosis') }}'">Diagnosis & Treatment</button>
+        </nav>
+
+        <!-- Mobile Menu Button -->
+        <div class="menu-icon" onclick="toggleMenu()">☰</div>
+
+        <!-- Dark Mode Toggle -->
+        <div class="theme-toggle" onclick="toggleTheme()">🌙</div>
+    </header>
+
+    <!-- Mobile Dropdown Menu (Hidden by Default) -->
+    <div class="mobile-menu">
+        <button onclick="navigateTo('predict.html')">Predict</button>
+        <button onclick="navigateTo('about.html')">About Us</button>
+        <button onclick="navigateTo('symptoms.html')">Symptoms & Causes</button>
+        <button onclick="navigateTo('diagnosis.html')">Diagnosis & Treatment</button>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Detect Heart Disease with <span class="typing"></span></h1>
+        <p>Fast, Accurate, and AI-powered Diagnosis at Your Fingertips.</p>
+        <div class="hero-buttons">
+            <button onclick="window.location.href='{{ url_for('predict_page') }}'">Get Started</button>
+            <button onclick="window.location.href='{{ url_for('about') }}'">Learn More</button>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about">
+        <h2>Why Choose Our System?</h2>
+        <div class="features">
+            <div class="feature">
+                <h3>💡 AI-Powered</h3>
+                <p>Advanced machine learning models ensure accurate predictions.</p>
+            </div>
+            <div class="feature">
+                <h3>⚡ Instant Results</h3>
+                <p>Get your diagnosis in seconds with real-time analysis.</p>
+            </div>
+            <div class="feature">
+                <h3>🛡️ Secure & Private</h3>
+                <p>Your data is encrypted and protected at all times.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-it-works">
+        <h2>How It Works</h2>
+        <div class="steps">
+            <div class="step">
+                <h3>1️⃣ Enter Your Details</h3>
+                <p>Fill in basic health information to begin.</p>
+            </div>
+            <div class="step">
+                <h3>2️⃣ AI Analysis</h3>
+                <p>Our model processes your data to detect potential risks.</p>
+            </div>
+            <div class="step">
+                <h3>3️⃣ Get Results</h3>
+                <p>Receive an instant diagnosis and health recommendations.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-container">
+    
+            <div class="faq-item">
+                <button class="faq-question">🔹 How accurate is the AI diagnosis? <span class="faq-toggle">+</span></button>
+                <div class="faq-answer">
+                    <p>Our AI model has a high accuracy rate, but it should always be used alongside professional medical advice.</p>
+                </div>
+            </div>
+    
+            <div class="faq-item">
+                <button class="faq-question">🔹 Is my Data Secure? <span class="faq-toggle">+</span></button>
+                <div class="faq-answer">
+                    <p>Yes! We use end-to-end encryption to protect your data, and it is never shared with third parties.</p>
+                </div>
+            </div>
+    
+            <div class="faq-item">
+                <button class="faq-question">🔹 Does the system work for all ages? <span class="faq-toggle">+</span></button>
+                <div class="faq-answer">
+                    <p>Yes, but results should always be reviewed by a healthcare professional for children and seniors.</p>
+                </div>
+            </div>
+    
+            <div class="faq-item">
+                <button class="faq-question">🔹 Can I use this tool for self-diagnosis? <span class="faq-toggle">+</span></button>
+                <div class="faq-answer">
+                    <p>No. This tool is for preliminary analysis only and should not replace professional medical evaluation.</p>
+                </div>
+            </div>
+    
+        </div>
+    </section>
+
+    <script>
+        document.querySelectorAll('.faq-question').forEach(button => {
+    button.addEventListener('click', () => {
+        const faqAnswer = button.nextElementSibling;
+        const toggleSymbol = button.querySelector('.faq-toggle');
+
+        // Toggle max-height to show/hide the answer
+        if (faqAnswer.style.maxHeight) {
+            faqAnswer.style.maxHeight = null;
+            toggleSymbol.textContent = "+";
+        } else {
+            faqAnswer.style.maxHeight = faqAnswer.scrollHeight + "px";
+            toggleSymbol.textContent = "−";
+        }
+    });
+});
+
+    </script>
+    
+    <footer>
+        <div class="footer-content">
+            <h2>Heart Detection System</h2>
+            <p>Your health, our priority. AI-powered heart disease detection.</p>
+            <div class="social-links">
+                <a href="https://www.facebook.com/zuck/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://twitter.com/elonmusk?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="https://www.instagram.com/ashtonhallofficial/" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://in.linkedin.com/in/piyush-barde-b054a8165?trk=people-guest_people_search-card" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Heart Detection System | All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Transition Overlay -->
+    <div class="transition-overlay">
+        <video class="loading-screen-video" autoplay muted playsinline>
+            <source src="{{ url_for('static', filename='videos/loadingscreen.mp4') }}" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <!-- Scripts -->
+    <script src="{{ url_for('static', filename='js/transition.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/cursor-effect.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/menu1.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/typing-effect.js') }}"></script>
+</body>
+</html>

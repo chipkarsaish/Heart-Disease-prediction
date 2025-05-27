@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Latest Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Detection System - About Us</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/about.css') }}">
+    <link rel="icon" type="image/png" href="static/images/logo.jpeg">
+</head>
+<body>
+    <!-- Background Video -->
+    <video id="background-video" autoplay loop muted playsinline class="bg-video">
+        <source src="{{ url_for('static', filename='videos/homebg.mp4') }}" type="video/mp4">
+
+        Your browser does not support the video tag.
+    </video>
+
+    <!-- Header Section -->
+    <header>
+        <div class="logo-container">
+            <img src="static/images/logo.jpeg" alt="Heart Disease Predictor Logo">
+            <h1>Heart Disease Predictor</h1>
+        </div>
+        <nav class="desktop-nav">
+            <button onclick="window.location.href='{{ url_for('home') }}'">Home</button>
+            <button onclick="window.location.href='{{ url_for('predict_page') }}'">Predict</button>
+            <button onclick="window.location.href='{{ url_for('symptoms') }}'">Symptoms & Causes</button>
+            <button onclick="window.location.href='{{ url_for('diagnosis') }}'">Diagnosis & Treatment</button>
+        </nav>
+        <!-- Mobile Menu Button -->
+        <div class="menu-icon" onclick="toggleMenu()">☰</div>
+
+        <!-- Dark Mode Toggle -->
+        <div class="theme-toggle" onclick="toggleTheme()">🌙</div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <section class="about">
+            <h2>Welcome to our Heart Disease Prediction System!</h2>
+            <p>
+                At the forefront of medical technology, our system leverages the power of artificial intelligence
+                to predict heart disease risk with remarkable accuracy. By analyzing a variety of health indicators
+                and medical history, our system provides early warning signs, enabling individuals and healthcare
+                professionals to take proactive measures for heart health.
+            </p>
+        </section>
+
+                <!-- Mission Statement Section -->
+                <section class="mission-section">
+                    <h2>Our Mission</h2>
+                    <p>
+                        We aim to revolutionize healthcare with AI-driven heart disease prediction.  
+                        By providing early detection and valuable insights, we empower individuals  
+                        and medical professionals to take proactive steps toward a healthier heart.
+                    </p>
+                </section>
+        
+
+        <!-- Random Fact Section -->
+        <section class="fact-section">
+            <h3>Did You Know?</h3>
+            <p id="random-fact"></p>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-content">
+            <h2>Heart Detection System</h2>
+            <p>Your health, our priority. AI-powered heart disease detection.</p>
+            <div class="social-links">
+                <a href="https://www.facebook.com/zuck/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://twitter.com/elonmusk?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="https://www.instagram.com/ashtonhallofficial/" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://in.linkedin.com/in/piyush-barde-b054a8165?trk=people-guest_people_search-card" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Heart Detection System | All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Transition Overlay -->
+    <div class="transition-overlay">
+        <video autoplay loop muted class="bgvideo">
+            <source src="{{ url_for('static', filename='videos/homebg.mp4') }}" type="video/mp4">
+        </video>
+            Your browser does not support the video tag.
+    </div>
+
+    <!-- Scripts -->
+    <script src="{{ url_for('static', filename='js/transition.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/cursor-effect.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/menu1.js') }}"></script>
+    <script>
+
+        // Random Fact Generator
+        function displayRandomFact() {
+            const facts = [
+                "Heart disease is the leading cause of death worldwide.",
+                "A healthy diet can reduce the risk of heart disease by 30%.",
+                "Regular exercise strengthens the heart muscle and improves circulation.",
+                "AI is revolutionizing early heart disease detection.",
+                "Smoking increases heart disease risk by 50%.",
+                "Stress management can lower your heart disease risk.",
+                "High blood pressure is a major risk factor for heart disease.",
+                "Cholesterol levels can be managed with diet and medication.",
+                "Diabetes significantly increases heart disease risk.",
+                "Family history plays a crucial role in heart disease risk.",
+                "Maintaining a healthy weight is vital for heart health.",
+                "Sleep apnea can increase the risk of heart disease.",
+                "Heart disease is the leading cause of death worldwide.",
+                "Your heart beats about 100,000 times per day.",
+                "The human heart pumps around 2,000 gallons of blood daily.",
+                "Laughing is good for your heart—it reduces stress and boosts circulation.",
+                "Women’s hearts beat faster than men’s on average.",
+                "The heart has its own electrical system and can continue beating outside the body.",
+                "A newborn baby's heart beats around 120–160 times per minute.",
+                "High blood pressure is often called the 'silent killer' because it has no symptoms.",
+                "The risk of heart disease can be reduced by 80% with a healthy lifestyle.",
+                "Your heart is about the size of your fist.",
+                "The first pacemaker was invented in 1958.",
+                "Eating dark chocolate in moderation can be beneficial for heart health.",
+                "Heart attacks are more common on Mondays than any other day.",
+                "The human heart creates enough pressure to squirt blood 30 feet.",
+                "Poor sleep quality can increase the risk of heart disease.",
+                "The left side of your heart pumps blood to the body, while the right side pumps blood to the lungs.",
+                "Heart disease accounts for about 1 in 4 deaths in the United States.",
+                "Daily meditation can help lower the risk of heart disease.",
+                "The human heart weighs between 250–350 grams.",
+                "Cardiovascular exercise can help strengthen your heart and reduce the risk of heart disease.",
+                "The earliest recorded case of heart disease dates back to ancient Egypt (about 3,500 years ago).",
+                "Women often experience different heart attack symptoms than men, including nausea and back pain.",
+                "Cold weather can constrict blood vessels and increase the risk of heart attacks.",
+                "The heart starts beating just 3 weeks after conception."
+            ];
+            document.getElementById("random-fact").textContent = facts[Math.floor(Math.random() * facts.length)];
+        }
+
+        // Ensure the fact appears when the page loads
+        document.addEventListener("DOMContentLoaded", displayRandomFact);
+    </script>
+</body>
+</html>
